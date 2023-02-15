@@ -73,6 +73,29 @@ class Node{
      return this;
    }
 
+   get(index){
+    if(!this.head) return undefined;
+    if(index < 0 || index > this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    
+    while(counter !== index){
+      current = current.next;
+      counter++;
+    } 
+    return current;    
+  }
+  
+  set(index,value){
+    let foundNode = this.get(index);
+    if(!foundNode){
+      return false
+    } else {
+      foundNode.data = value;
+      return true
+    }
+  }
+
   
     
     
