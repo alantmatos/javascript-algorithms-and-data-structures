@@ -96,6 +96,34 @@ class Node{
     }
   }
 
+  insert(index, value){
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return !!this.unshift(value);
+    if(index === this.length) return !!this.push(value);
+    
+      let prevNode = this.get(index-1);
+      let nextNode = this.get(index);
+      let newNode = new Node(value);
+      prevNode.next = newNode;
+      newNode.next = nextNode;
+      this.length ++;
+    
+    return true 
+  }
+  
+  remove(index){
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return !!this.shift();
+    if(index === this.length) return !!this.pop();
+    
+    let prevNode = this.get(index-1);
+    let removedNode = this.get(index);
+    prevNode.next = this.get(index+1);
+    
+    this.length --;
+    return removedNode;
+  }
+
   
     
     
