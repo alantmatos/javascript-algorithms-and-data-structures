@@ -85,6 +85,17 @@ class DoublyLinkedList {
   } 
 
 
+  print(){
+    if(this.length === 0) return "List is empty";
+    let current = this.head;
+    
+    while(current){
+      console.log(current.data)
+      current = current.next;      
+    }
+  }
+
+
 
 
 
