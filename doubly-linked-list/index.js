@@ -1,17 +1,67 @@
 
-
 ///////////////////////////////////////////
 /////////// Doubly Linked List ///////////
 /////////////////////////////////////////
 
-function mergeSort(arr) {
-  // Base case
-  if (arr.length <= 1) return arr
-  let mid = Math.floor(arr.length / 2)
-  // Recursive calls
-  let left = mergeSort(arr.slice(0, mid))
-  let right = mergeSort(arr.slice(mid))
-  return merge(left, right)
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
 }
 
-mergeSort([1,2,4,5])
+
+class DoublyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  push(data) {
+    let newNode = new Node(data)
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  pop() {
+    if (!this.head) return undefined;
+    let removedNode = this.tail;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = removedNode.prev;
+      this.tail.next = null;
+      removedNode.prev = null;
+    }
+    this.length--;
+    return removedNode;
+  }
+
+
+
+
+
+}
+
+
+
+
+// let dblist = new DoublyLinkedList();
+
+// dblist.push(100)
+// dblist.push(200)
+// dblist.pop();
+// dblist
