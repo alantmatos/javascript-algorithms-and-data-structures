@@ -181,8 +181,7 @@ class DoublyLinkedList {
 
 
 // let dblist = new DoublyLinkedList();
-
-// dblist.push(100)
-// dblist.push(200)
+// dblist.push(100);
+// dblist.push(200);
 // dblist.pop();
-// dblist
+// dblist;
