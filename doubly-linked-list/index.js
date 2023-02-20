@@ -50,13 +50,13 @@ class DoublyLinkedList {
     return removedNode;
   }
 
-  
-  shift(){
-    if(this.length === 0 ) return undefined;
-    
+
+  shift() {
+    if (this.length === 0) return undefined;
+
     let oldHead = this.head;
-    
-    if(this.length === 1){
+
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
@@ -65,34 +65,59 @@ class DoublyLinkedList {
       oldHead.next = null;
     }
     this.length--;
-    return oldHead;    
+    return oldHead;
   }
-  
-  unshift(value){    
+
+  unshift(value) {
     let newNode = new Node(value);
-    
-    if(this.length === 0){
+
+    if (this.length === 0) {
       this.head = newNode;
       this.tail = newNode;
-    } else {    
-    let currentHead = this.head;
-    this.head = newNode;
-    this.head.next = currentHead;
-    currentHead.prev = this.head;
-  }    
-    this.length++;
-    return this   
-  } 
-
-
-  print(){
-    if(this.length === 0) return "List is empty";
-    let current = this.head;
-    
-    while(current){
-      console.log(current.data)
-      current = current.next;      
+    } else {
+      let currentHead = this.head;
+      this.head = newNode;
+      this.head.next = currentHead;
+      currentHead.prev = this.head;
     }
+    this.length++;
+    return this
+  }
+
+
+  print() {
+    if (this.length === 0) return "List is empty";
+    let current = this.head;
+
+    while (current) {
+      console.log(current.data)
+      current = current.next;
+    }
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter;
+    let currentNode;
+
+    if (index <= this.length / 2) {
+      counter = 0;
+      currentNode = this.head;
+
+      while (counter !== index) {
+        currentNode = currentNode.next;
+        counter++;
+      }
+    } else {
+      counter = this.length - 1;
+      currentNode = this.tail;
+      while (counter !== index) {
+        currentNode = currentNode.prev;
+        counter--;
+      }
+    }
+    return currentNode;
+
   }
 
 
