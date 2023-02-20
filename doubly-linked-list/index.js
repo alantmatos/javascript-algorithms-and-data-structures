@@ -117,7 +117,16 @@ class DoublyLinkedList {
       }
     }
     return currentNode;
+  }
 
+  set(index,value){
+    let selectedNode = this.get(index)
+    if(selectedNode){
+      selectedNode.data = value;    
+      return true
+    } else {
+      return false
+    }
   }
 
 
