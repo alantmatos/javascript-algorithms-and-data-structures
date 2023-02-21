@@ -86,22 +86,43 @@ class BinarySearchTree {
     // insert(data){
     //     var newNode = new Node(data);
     //     if (traverse(this.root)) this.root = newNode;
-     
+
     //     function traverse(current){
     //         if (current === null) return true;
-     
+
     //         if (newNode.data > current.data) {
     //             if (traverse(current.right)) current.right = newNode;
     //         } else if (newNode.data < current.data) {
     //             if (traverse(current.left)) current.left = newNode;
     //         }
-     
+
     //         return false;
     //     }
-     
+
     //     return this;
     // }
 
+
+
+
+    find(data) {
+        if (this.root === null) return false;
+
+        let current = this.root;
+        let found = false;
+
+        while (current && !found) {
+            if (data < current.data) {
+                current = current.left;
+            } else if (data > current.data) {
+                current = current.right
+            } else {
+                found = true;
+            }
+        }
+        if (!found) return false;
+        return current;
+    }
 
 
 
