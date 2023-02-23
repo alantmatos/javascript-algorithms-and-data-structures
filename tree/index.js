@@ -142,8 +142,8 @@ BFS(){
 
 
 // // traversing a tree
-// // Depth-First-Search
-DFS(){
+// // Depth-First-Search ( Pre-Order )
+DFS_PreOrder(){
     let data = [];
     function traverse(node){
         data.push(node.data);
@@ -154,6 +154,18 @@ DFS(){
     return data;
 }
 
+// // Depth-First-Search ( Post-Order )
+
+DPS_PostOrder(){
+    let data = [];
+    function traverse(node){
+        if(node.left) traverse(node.left);
+        if(node.right) traverse(node.right);
+        data.push(node.data)
+    }
+    traverse(this.root);
+    return data;
+}
 
 
 
