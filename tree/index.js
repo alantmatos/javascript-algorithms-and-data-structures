@@ -124,48 +124,60 @@ class BinarySearchTree {
         return current;
     }
 
-// // traversing a tree, 
-// Breadth-First-Search  ( Horizontaly ) 
-BFS(){
-    let node = this.root
-    let data = [];
-    let queue = [];
+    // // traversing a tree, 
+    // Breadth-First-Search  ( Horizontaly ) 
+    BFS() {
+        let node = this.root
+        let data = [];
+        let queue = [];
 
-    while(queue.length){
-        node = queue.shift();
-        data.push(node.data);
-        if(node.left) queue.push(node.left);
-        if(node.right) queue.push(node.right);
+        while (queue.length) {
+            node = queue.shift();
+            data.push(node.data);
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return data
     }
-    return data
-}
 
 
-// // traversing a tree
-// // Depth-First-Search ( Pre-Order )
-DFS_PreOrder(){
-    let data = [];
-    function traverse(node){
-        data.push(node.data);
-        if(node.left) traverse(node.left);
-        if(node.right) traverse(node.right);
+    // // traversing a tree
+    // // Depth-First-Search ( Pre-Order )
+    DFS_PreOrder() {
+        let data = [];
+        function traverse(node) {
+            data.push(node.data);
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
     }
-    traverse(this.root);
-    return data;
-}
 
-// // Depth-First-Search ( Post-Order )
-
-DPS_PostOrder(){
-    let data = [];
-    function traverse(node){
-        if(node.left) traverse(node.left);
-        if(node.right) traverse(node.right);
-        data.push(node.data)
+    // // Depth-First-Search ( Post-Order )
+    DFS_PostOrder() {
+        let data = [];
+        function traverse(node) {
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+            data.push(node.data)
+        }
+        traverse(this.root);
+        return data;
     }
-    traverse(this.root);
-    return data;
-}
+
+
+    // // Depth-First-Search ( In-Order )
+    DFS_InOrder() {
+        let data = [];
+        function traverse(node) {
+            if (node.left) traverse(node.left);
+            data.push(node.data)
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
 
 
 
