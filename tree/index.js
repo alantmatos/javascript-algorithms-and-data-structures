@@ -141,6 +141,20 @@ BFS(){
 }
 
 
+// // traversing a tree
+// // Depth-First-Search
+DFS(){
+    let data = [];
+    function traverse(node){
+        data.push(node.data);
+        if(node.left) traverse(node.left);
+        if(node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+}
+
+
 
 
 
