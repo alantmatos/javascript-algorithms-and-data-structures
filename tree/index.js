@@ -124,6 +124,22 @@ class BinarySearchTree {
         return current;
     }
 
+// // traversing a tree, 
+// Breadth-First-Search  ( Horizontaly ) 
+BFS(){
+    let node = this.root
+    let data = [];
+    let queue = [];
+
+    while(queue.length){
+        node = queue.shift();
+        data.push(node.data);
+        if(node.left) queue.push(node.left);
+        if(node.right) queue.push(node.right);
+    }
+    return data
+}
+
 
 
 
