@@ -2,6 +2,15 @@
 
 # Tree
 
+## Types of Trees:
+
+Trees: are non-linear data structures that contains one root and child nodes.
+
+Binary Trees: can have values of any type, but at most two children for each parent.
+
+Binary Search Tree: are a more specific version of Binary Trees, where every node's value to the left of a parent is lesser than it's value, and every node to the right is greater.
+
+
 Tree Terminology:
 
 Root: The top node in a tree.
@@ -23,8 +32,3 @@ Computer file systems.
 
 
 
-Types of Trees:
-
-Trees
-Binary Trees
-Binary Search Trees
