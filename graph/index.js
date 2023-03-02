@@ -36,6 +36,16 @@ class Graph {
   }
 
 
+  removeVertex(vertex) {
+    while (this.adjacencyList[vertex].length) {
+      let adjacentVertex = this.adjacencyList[vertex].pop();
+      this.removeEdge(vertex, adjacentVertex)
+    }
+    delete this.adjacencyList[vertex];
+  }
+
+
+
 
 
 }
