@@ -23,6 +23,19 @@ class Graph {
   }
 
 
+  removeEdge(vertex1, vertex2) {
+    if (this.adjacencyList[vertex1]) {
+      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(vertex =>
+        vertex !== vertex2)
+    }
+
+    if (this.adjacencyList[vertex2]) {
+      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(vertex =>
+        vertex !== vertex1)
+    }
+  }
+
+
 
 
 }
