@@ -39,7 +39,6 @@ class HashTable {
         let index = this._hash(key);
         if (!this.keyMap[index]) {
             this.keyMap[index] = [];
-
         }
         this.keyMap[index].push([key, value])
     }
@@ -58,7 +57,6 @@ class HashTable {
 
     values() {
         let valuesArray = [];
-
         for (let i = 0; i < this.keyMap.length; i++) {
             if (this.keyMap[i]) {
                 for (let j = 0; j < this.keyMap[i].length; j++) {
@@ -73,7 +71,6 @@ class HashTable {
 
     keys() {
         let keyssArray = [];
-
         for (let i = 0; i < this.keyMap.length; i++) {
             if (this.keyMap[i]) {
                 for (let j = 0; j < this.keyMap[i].length; j++) {
