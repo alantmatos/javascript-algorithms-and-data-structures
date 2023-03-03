@@ -37,12 +37,36 @@ class Graph {
 
 
   removeVertex(vertex) {
-    while (this.adjacencyList[vertex].length) {
-      let adjacentVertex = this.adjacencyList[vertex].pop();
-      this.removeEdge(vertex, adjacentVertex)
+    if (this.adjacencyList[vertex]) {
+      while (this.adjacencyList[vertex].length) {
+        let adjacentVertex = this.adjacencyList[vertex].pop();
+        this.removeEdge(vertex, adjacentVertex)
+      }
+      delete this.adjacencyList[vertex];
     }
-    delete this.adjacencyList[vertex];
   }
+
+  // // DFS Graph traversal
+  // // Recursive 
+
+  depthFirstRecursive(start) {
+    const result = [];
+    const visited = {};
+    const adjacencyList = this.adjacencyList;
+
+    (function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          return dfs(neighbor)
+        }
+      });
+    })(start);
+    return result;
+  }
+
 
 
 
