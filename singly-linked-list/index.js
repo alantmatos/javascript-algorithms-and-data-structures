@@ -124,6 +124,18 @@ class SinglyLinkedList {
     return removedNode;
   }
 
+  deleteAll(){
+    let current = this.head;
+    let temp;
+    while(current){
+      temp = current.next;
+      this.pop();
+      current = temp;      
+    }
+    this.shift();
+    return this
+  }
+
   print() {
     let arr = [];
     let current = this.head;
