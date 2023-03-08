@@ -16,7 +16,7 @@ function frequencyCounter(string){
 
 
   // Using frequency counter to compare strings.
-  function vaidAnagram(first, second) {
+  function validAnagram(first, second) {
     if(first.length !== second.length){
       return false
     }
@@ -38,6 +38,6 @@ function frequencyCounter(string){
     }
     return true;
   }  
- //vaidAnagram('car','rac')
+ //validAnagram('car','rac')
 
  

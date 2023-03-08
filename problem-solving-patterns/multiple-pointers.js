@@ -33,3 +33,27 @@ function sumZero(arr) {
     } return false
 }
 sumZero([1, 2, 3, 4, 6, -5, 1, -1, 6, 5])
+
+
+
+
+
+// count unique values
+// Write a function that accepts one sorted array and 
+// count the unique values in the array.
+function countUniqueValues (arr){
+    sortArr(arr);
+    let i = 0;
+    let counter = 1;
+    
+    if(arr.length === 0 ) return null;
+    
+    for(let j = 1; j < arr.length; j++){
+      if(arr[i] != arr[j]){
+        counter ++;
+      }
+      i++;
+    }
+  return counter
+  }
+  countUniqueValues([1,2,2,3,4,5,6,6,6,7,8,9,1,1,10,0,11])
